@@ -1,18 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clipChildren="false"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="100dp"
+        android:clipChildren="false"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <FrameLayout
+            android:id="@+id/seekBar_info_contain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:paddingLeft="0dp">
+
+            <FrameLayout
+                android:id="@+id/seekBar_info_contain_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="false">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/baloon" />
+
+                <TextView
+                    android:id="@+id/seekBar_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/noto_sans"
+                    android:paddingTop="10dp"
+                    android:text="100"
+                    android:textColor="#ffffff" />
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/seekBar_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:paddingLeft="20dp"
+            android:paddingTop="45dp"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/seekBar_holder_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="holder_title"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/seekBar_holder_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="100"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/seekBar_child_fl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.example.sideproject_05.CustomSlider
+                        android:id="@+id/seekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/seekbar_seekbar1"
+                        android:thumb="@drawable/thumb_image" />
+
+                    <FrameLayout
+                        android:id="@+id/slder_header_contain"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:clipChildren="false">
+
+                        <com.example.sideproject_05.CustomSlider_Header
+                            android:id="@+id/slder_header_canvas"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:clipChildren="false" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
