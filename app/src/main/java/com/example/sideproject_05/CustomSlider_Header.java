@@ -11,7 +11,11 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.renderscript.Sampler;
+import android.support.animation.DynamicAnimation;
+import android.support.animation.SpringAnimation;
+import android.support.animation.SpringForce;
 import android.util.AttributeSet;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
@@ -75,6 +79,7 @@ public class CustomSlider_Header extends View {
                 calc();
             }
         }, 100);
+
     }
 
     private void calc(){
@@ -90,6 +95,9 @@ public class CustomSlider_Header extends View {
         fill.setPathEffect(new CornerPathEffect(corEffect_Min));
 //        baloonMarginY = MainActivity.seekBar_child_fl.getY() + MainActivity.seekBar_fl.getPaddingTop();
         baloonMarginY = MainActivity.seekBar_fl.getPaddingTop();
+
+//        MainActivity.seekBar_info_contain_fl.setPivotX(0.5f);
+        MainActivity.seekBar_info_contain_fl.setPivotY(1.0f);
     }
 
     @Override
@@ -142,6 +150,19 @@ public class CustomSlider_Header extends View {
 //                        Utils_Anim.AlphaAnim(MainActivity.seekBar_info_contain, 0, 1, 300);
                         Utils_Anim.TransAlphaAnim(MainActivity.seekBar_info_contain, 0, 0, baloonMarginY, 0, 0, 1, 300);
                         Utils_Anim.SclaeAnim(MainActivity.seekBar_info_contain_fl, 0.0f, 1.0f, 0.0f, 1.0f, 0.5f, 1.0f, 300);
+
+//                        SpringForce spring_up = new SpringForce(1)
+//                                .setDampingRatio(0.5f)
+//                                .setStiffness(500);
+//
+//                        SpringAnimation scaleXAnimation = new SpringAnimation(MainActivity.seekBar_info_contain_fl, DynamicAnimation.SCALE_X).setMinValue(0).setSpring(spring_up).setStartValue(0);
+//                        scaleXAnimation.start();
+//
+//                        SpringAnimation scaleYAnimation = new SpringAnimation(MainActivity.seekBar_info_contain_fl, DynamicAnimation.SCALE_Y).setMinValue(0).setSpring(spring_up).setStartValue(0);
+//                        scaleYAnimation.start();
+//
+//                        MainActivity.seekBar_info_contain_fl.setScaleX(1);
+//                        MainActivity.seekBar_info_contain_fl.setScaleY(1);
                     }
                 }
             });
@@ -199,6 +220,16 @@ public class CustomSlider_Header extends View {
 //                        Utils_Anim.AlphaAnim(MainActivity.seekBar_info_contain, 1, 0, 300);
                         Utils_Anim.TransAlphaAnim(MainActivity.seekBar_info_contain, 0, 0, 0, baloonMarginY, 1, 0, 300);
                         Utils_Anim.SclaeAnim(MainActivity.seekBar_info_contain_fl, 1.0f, 0.0f, 1.0f, 0.0f, 0.5f, 1.0f, 300);
+
+//                        SpringForce spring_down = new SpringForce(0)
+//                                .setDampingRatio(0.5f)
+//                                .setStiffness(10);
+//
+//                        SpringAnimation scaleXAnimation = new SpringAnimation(MainActivity.seekBar_info_contain_fl, DynamicAnimation.SCALE_X).setMinValue(0).setSpring(spring_down).setStartValue(1);
+//                        scaleXAnimation.start();
+//
+//                        SpringAnimation scaleYAnimation = new SpringAnimation(MainActivity.seekBar_info_contain_fl, DynamicAnimation.SCALE_Y).setMinValue(0).setSpring(spring_down).setStartValue(1);
+//                        scaleYAnimation.start();
 
                         Utils_Calc.delayMin(30, new Utils_Calc.DelayCallback() {
                             @Override
